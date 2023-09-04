@@ -1,0 +1,9 @@
+{
+  "name": "checkout-ui-2",
+  "private": true,
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@shopify/ui-extensions": "2023.7.x"
+  }
+}

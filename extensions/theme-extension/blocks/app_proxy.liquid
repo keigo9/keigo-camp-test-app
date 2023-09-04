@@ -1,0 +1,43 @@
+<div class="_my_app_embed_block">
+    app block: {{ template.name }}<br>
+    settings.text: {{ block.settings.text }}<br>
+</div>
+
+
+<script>
+console.log("blocks/app-embed-block.liquid");
+
+const shopUrl = '{{shop.secure_url}}';
+
+// Demonstrate how the 1st party cookie can be passed to the app proxy as query.
+const cookieParam = document.cookie;
+
+// App proxy path for each shop can be edit by merchants, so you need to get the path from config or other way for real apps.
+const appProxyUrl = `${shopUrl}/apps/bareboneproxy?_1st_party_cookie_sent_by_me=${
+  encodeURIComponent(cookieParam)
+}`;
+
+console.log(`Accessing ${appProxyUrl} ...`);
+
+const httpClient = new XMLHttpRequest();
+httpClient.open("GET", appProxyUrl, false);
+httpClient.send(null);
+const res = JSON.parse(httpClient.responseText);
+console.log(JSON.stringify(res, null, 4));
+
+
+</script>
+{% schema %}
+{
+  "name": "App proxy embed block",
+  "target": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Your message",
+      "default": "App proxy embed block message"
+    }
+  ]
+}
+{% endschema %}

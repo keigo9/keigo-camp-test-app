@@ -1,19 +1,19 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-name = "keigo-camp-test-app"
-client_id = "d688457d0d8906a17b6b5a0431ff4ab3"
-application_url = "https://important-raise-cord-pupils.trycloudflare.com"
+name = "keigo-camp-test-local"
+client_id = "54d7093aa600bcecdd665045412b5f37"
+application_url = "https://affecting-palace-mt-treasure.trycloudflare.com"
 embedded = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "write_products"
+scopes = "write_products,read_orders,write_orders,read_assigned_fulfillment_orders,write_assigned_fulfillment_orders,read_merchant_managed_fulfillment_orders,read_third_party_fulfillment_orders,write_merchant_managed_fulfillment_orders,write_third_party_fulfillment_orders"
 
 [auth]
 redirect_urls = [
-  "https://important-raise-cord-pupils.trycloudflare.com/auth/callback",
-  "https://important-raise-cord-pupils.trycloudflare.com/auth/shopify/callback",
-  "https://important-raise-cord-pupils.trycloudflare.com/api/auth/callback"
+  "https://affecting-palace-mt-treasure.trycloudflare.com/auth/callback",
+  "https://affecting-palace-mt-treasure.trycloudflare.com/auth/shopify/callback",
+  "https://affecting-palace-mt-treasure.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
@@ -24,4 +24,4 @@ embedded = false
 
 [build]
 automatically_update_urls_on_dev = true
-dev_store_url = "keigo-test-camp.myshopify.com"
+dev_store_url = "keigo-checkout-extension.myshopify.com"

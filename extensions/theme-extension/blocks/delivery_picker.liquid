@@ -1,0 +1,47 @@
+<div class="deliver-date-picker-container">
+  <p style="color: {{ block.settings.color }}">{{ block.settings.title }}</p>
+  <input id="extensionDeliverDate" type="date" name="attributes[deliver-date]" value="{{ cart.attributes["deliver-date"] }}">
+</div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const calendar = document.getElementById('extensionDeliverDate');
+    const today = new Date().toLocaleDateString('sv-SE');
+    calendar.setAttribute('min', today);
+
+    calendar.addEventListener('change', async () => {
+      const selectedValue = calendar.value;
+      const attributes = {
+        attributes: {
+          'deliver-date': selectedValue
+        }
+      };
+      try {
+        const response = await fetch('/cart/update.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(attributes)
+        });
+        const json = await response.json();
+        console.log(json);
+      } catch (e) {
+        console.error(e);
+      }
+    });
+    
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Deliver Date Picker",
+  "target": "section",
+  "settings": [
+    { "type": "text", "id": "title", "label": "title", "default": "配送日時指定" },
+    { "type": "color", "id": "color", "label": "Title color", "default": "#000000" }
+  ]
+}
+{% endschema %}
+
