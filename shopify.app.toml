@@ -2,7 +2,7 @@
 
 name = "keigo-camp-test-local"
 client_id = "54d7093aa600bcecdd665045412b5f37"
-application_url = "https://affecting-palace-mt-treasure.trycloudflare.com"
+application_url = "https://k-gallery-ver-reid.trycloudflare.com"
 embedded = true
 
 [access_scopes]
@@ -11,9 +11,9 @@ scopes = "write_products,read_orders,write_orders,read_assigned_fulfillment_orde
 
 [auth]
 redirect_urls = [
-  "https://affecting-palace-mt-treasure.trycloudflare.com/auth/callback",
-  "https://affecting-palace-mt-treasure.trycloudflare.com/auth/shopify/callback",
-  "https://affecting-palace-mt-treasure.trycloudflare.com/api/auth/callback"
+  "https://k-gallery-ver-reid.trycloudflare.com/auth/callback",
+  "https://k-gallery-ver-reid.trycloudflare.com/auth/shopify/callback",
+  "https://k-gallery-ver-reid.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
