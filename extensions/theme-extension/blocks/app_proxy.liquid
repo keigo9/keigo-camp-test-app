@@ -1,10 +1,12 @@
 <div class="_my_app_embed_block">
-    app block: {{ template.name }}<br>
-    settings.text: {{ block.settings.text }}<br>
+   <button id="proxyRequest">
+    {{ block.settings.text }}
+   </button>
+   <div id="proxyResult"></div>
 </div>
 
 
-<script>
+{% comment %} <script>
 console.log("blocks/app-embed-block.liquid");
 
 const shopUrl = '{{shop.secure_url}}';
@@ -26,6 +28,31 @@ const res = JSON.parse(httpClient.responseText);
 console.log(JSON.stringify(res, null, 4));
 
 
+</script> {% endcomment %}
+
+<script>
+  window.onload = function () {
+    document.getElementById('proxyRequest').addEventListener('click', proxyRequest);
+  };
+  async function proxyRequest () {
+    const res = await fetch('{{shop.url}}/apps/proxy');
+    const data = await res.json();
+    console.log(data);
+    if (data?.data?.orders?.nodes?.length > 0) {
+      let ordersHtml = ``;
+      for (const order of data.data.orders.nodes) {
+        console.log(order);
+        ordersHtml += `<div class="order">`;
+        ordersHtml += `<div>${order.name} / ¥${order.totalPrice}</div>`;
+        for (const line_item of order.lineItems.nodes) {
+          ordersHtml += `<span>${line_item.title} / QTY:${line_item.quantity} / ¥${line_item.originalUnitPrice}</span>`;
+        }
+        ordersHtml += `</div>`;
+      }
+      const proxyResultElement = document.getElementById('proxyResult');
+      proxyResultElement.insertAdjacentHTML('beforeend', ordersHtml);
+    }
+  };
 </script>
 {% schema %}
 {
@@ -36,7 +63,7 @@ console.log(JSON.stringify(res, null, 4));
       "type": "text",
       "id": "text",
       "label": "Your message",
-      "default": "App proxy embed block message"
+      "default": "App proxy request"
     }
   ]
 }
