@@ -2,7 +2,7 @@
 
 name = "keigo-camp-test-local"
 client_id = "54d7093aa600bcecdd665045412b5f37"
-application_url = "https://palmer-ld-laws-barn.trycloudflare.com"
+application_url = "https://shopper-tracy-throughout-happen.trycloudflare.com"
 embedded = true
 
 [access_scopes]
@@ -11,16 +11,16 @@ scopes = "write_products,read_orders,write_orders,read_assigned_fulfillment_orde
 
 [auth]
 redirect_urls = [
-  "https://palmer-ld-laws-barn.trycloudflare.com/auth/callback",
-  "https://palmer-ld-laws-barn.trycloudflare.com/auth/shopify/callback",
-  "https://palmer-ld-laws-barn.trycloudflare.com/api/auth/callback"
+  "https://shopper-tracy-throughout-happen.trycloudflare.com/auth/callback",
+  "https://shopper-tracy-throughout-happen.trycloudflare.com/auth/shopify/callback",
+  "https://shopper-tracy-throughout-happen.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
 api_version = "2023-07"
 
 [app_proxy]
-url = "https://tunes-lists-illustration-uv.trycloudflare.com/proxy"
+url = "https://cindy-dust-adverse-catalogue.trycloudflare.com/proxy"
 subpath = "proxy"
 prefix = "apps"
 

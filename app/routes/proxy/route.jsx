@@ -8,7 +8,7 @@ export async function loader({request}) {
     //const proxy = await authenticate.public.appProxy(request);
     const { admin } = await authenticate.public.appProxy(request);
     //console.log("proxy =>",proxy);
-    //console.log("admin =>",admin);
+    console.log("admin =>",admin);
     //console.log("session =>",session);
 
     const response = await admin.graphql(

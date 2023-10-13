@@ -23,7 +23,7 @@ export const loader = async ({ request }) => {
   const response = await admin.graphql(
     `#graphql
     query order {
-      orders(first: 10, query: "fulfillment_status:unshipped") {
+      orders(first: 30) {
         nodes {
           id
           name
@@ -177,7 +177,7 @@ export default function Index() {
                   <ChoiceList
                     title="Select Order"
                     choices={orderList.map((order) => ({
-                      label: order.name,
+                      label: order.name + " - filfillable:" + order.fulfillable,
                       value: order.id,
                     }))}
                     selected={selected}
